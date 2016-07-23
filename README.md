@@ -9,5 +9,5 @@ It's our job as consumers to forgive them and correct their mistakes when we can
 
 Scripts in /cjs/ directory are intended to be put to [cjs](https://chrome.google.com/webstore/detail/custom-javascript-for-web/poakhlngfciodnhlhhgnaaelnpjljija?hl=en) or similar plugin for each site to remove ads that are too smart for adblock or to do stuff that improves your user experience.
 
-You can put the links to these scripts instead of re-copying them each time they are updated (ads placement changes with time you know). Use the links generated with [rawgit](https://rawgit.com/). 
+You can put the links to these scripts instead of copying the code to keep up-to-date using [rawgit](https://rawgit.com/). 
 But make sure not to do it this way with your bank account sites =3. Put code only manually there and read it very carefully!
