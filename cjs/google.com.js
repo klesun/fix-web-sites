@@ -9,7 +9,6 @@ var blacklist = [
     'w3schools.com',
     'booklistonline.com', // paying service, seriously?!
     'inpearls.ru', // disgusting ads
-    'hulu.com', // "our video library can only be watched from within the United States"
 
     // got books, but they are split into pages... hate them!
     'librebook.ru',
@@ -23,6 +22,7 @@ var blacklist = [
 
     // anime
     'funimation.com', // "this video is not available in your territory"
+    'hulu.com', // "our video library can only be watched from within the United States"
 ];
 
 var shuffle = arr => arr.forEach((_,i,__,
