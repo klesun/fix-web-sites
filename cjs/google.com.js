@@ -49,7 +49,7 @@ var hideAds = function()
 {
     var css = document.createElement("style");
     css.type = "text/css";
-    css.innerHTML = '#lga, #tads, #tvcap, input[type="submit"] { display: none !important;  }';
+    css.innerHTML = '#body, #footer, #lga, #tads, #tvcap, input[type="submit"] { display: none !important;  }';
     document.body.appendChild(css);
 };
 
