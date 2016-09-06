@@ -5,7 +5,8 @@
 
 var $$ = (s, el) => Array.from((el || document).querySelectorAll(s));
 
-var loadMore = () => 
+var loadedTimes = 0;
+var loadMore = () => loadedTimes++ < 50 &&
 	$$('.load-more-button:not(.yt-uix-load-more-loading)')
 		.forEach(b => b.click());
 
