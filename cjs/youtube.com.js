@@ -5,14 +5,9 @@
 
 var $$ = (s, el) => Array.from((el || document).querySelectorAll(s));
 
-// youtube does not actually reload the page when you play next video
-var whenNewVideoLoaded = function()
+var scheduleResort = function()
 {
 	var interrupted = false;
-
-	var loadMore = () => 
-		$$('.load-more-button:not(.yt-uix-load-more-loading)')
-			.forEach(b => b.click());
 
 	var Comment = (elmt, idx) => 1 && {
 		likes: $$('.comment-renderer-like-count.on', elmt)[0].innerHTML - 1,
@@ -38,32 +33,36 @@ var whenNewVideoLoaded = function()
 			adapted.forEach(c => cont.appendChild(c.elmt));
 			
 			console.log('sorted ' + sortedCount + ' comments', adapted);
-			
-			$$('.comment-replies-renderer-header:not(.yt-uix-expander-collapsed) .comment-replies-renderer-expander-down')
-				.forEach(el => el.click());
 		}
 	};
 
-	setTimeout(() => {
-		setInterval(() => !interrupted && loadMore(), 500);
-		setTimeout(() => !interrupted && sort(), 2000);
-		setTimeout(() => !interrupted && sort(), 5000);
-		setTimeout(() => !interrupted && sort(), 10000);
-		setTimeout(() => !interrupted && sort(), 20000);
-		setTimeout(() => !interrupted && sort(), 100000);
-	}, 2000);
+	setTimeout(() => !interrupted && sort(), 2000);
+	setTimeout(() => !interrupted && sort(), 5000);
+	setTimeout(() => !interrupted && sort(), 10000);
+	setTimeout(() => !interrupted && sort(), 20000);
+	setTimeout(() => !interrupted && sort(), 100000);
 	
 	return () => interrupted = true;
 };
 
-var interrupt = whenNewVideoLoaded();
+var loadMore = () => {
+	$$('.load-more-button:not(.yt-uix-load-more-loading)')
+		.forEach(b => b.click());
+	$$('.comment-replies-renderer-header:not(.yt-uix-expander-collapsed) .comment-replies-renderer-expander-down')
+		.forEach(el => el.click());
+};
+
+setInterval(loadMore, 500);
+
+var interrupt = scheduleResort();
 var searchQuery = window.location.search;
 setInterval(
 	() => {
+		// youtube does not actually reload the page when you play next video
 		if (searchQuery != window.location.search) {
 			searchQuery = window.location.search;
 			interrupt();
-			interrupt = whenNewVideoLoaded();
+			interrupt = scheduleResort();
 		}
 	},
 	500
