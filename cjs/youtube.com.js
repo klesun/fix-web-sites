@@ -31,6 +31,7 @@ var scheduleResort = function()
 				// ORDER BY likes DESC, original idx ASC
 				.sort((a,b) => b.likes - a.likes || a.idx - b.idx);
 			adapted.forEach(c => cont.appendChild(c.elmt));
+			window.scrollTo(0, 0);
 			
 			console.log('sorted ' + sortedCount + ' comments', adapted);
 		}
@@ -49,7 +50,7 @@ var loadMore = () => {
 	$$('.load-more-button:not(.yt-uix-load-more-loading)')
 		.forEach(b => b.click());
 	$$('.comment-replies-renderer-header:not(.yt-uix-expander-collapsed) .comment-replies-renderer-expander-down')
-		.forEach(el => el.click());
+		.forEach(el => {el.click(); window.scrollTo(0, 0);});
 };
 
 setInterval(loadMore, 500);
