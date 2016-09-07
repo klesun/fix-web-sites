@@ -19,6 +19,7 @@ var blacklist = [
     'coollib.com/', // читать бесплатно можно только на сайте
     'fantasy-worlds.org', // платно
     'e-reading.club', // конец ознакомительного просмотра
+    'bookz.ru/', // "скачать" -> "купить" и конец ознакомительного просмотра
 
     // anime
     'funimation.com', // "this video is not available in your territory"
