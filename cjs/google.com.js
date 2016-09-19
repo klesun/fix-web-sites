@@ -20,6 +20,11 @@ var blacklist = [
     'fantasy-worlds.org', // платно
     'e-reading.club', // конец ознакомительного просмотра
     'bookz.ru/', // "скачать" -> "купить" и конец ознакомительного просмотра
+    'masterimargo.ru', // split into chapters
+    'nashbulgakov.ru/', // split into chapters
+    'book-online.com.ua/', // split into pages
+    'bookmate.com', // malware
+    'vehi.net', // split into chapters
 
     // anime
     'funimation.com', // "this video is not available in your territory"
