@@ -22,6 +22,7 @@ var blacklist = [
     'bookz.ru/', // "скачать" -> "купить" и конец ознакомительного просмотра
     'masterimargo.ru', // split into chapters
     'nashbulgakov.ru/', // split into chapters
+    'zl.kiev.ua', // aka nashbulgakov.ru
     'book-online.com.ua/', // split into pages
     'bookmate.com', // malware
     'vehi.net', // split into chapters
