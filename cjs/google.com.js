@@ -26,6 +26,8 @@ var blacklist = [
     'book-online.com.ua/', // split into pages
     'bookmate.com', // malware
     'vehi.net', // split into chapters
+    'knigago.ru', // "К сожалению, правообладатели запретили бесплатное распространение данной книги"
+    'leeet.net', // "Чтобы увидеть результаты, пожалуйста, выключите свой блокировщик рекламы"
 
     // anime
     'funimation.com', // "this video is not available in your territory"
