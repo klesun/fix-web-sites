@@ -28,6 +28,9 @@ var blacklist = [
     'vehi.net', // split into chapters
     'knigago.ru', // "К сожалению, правообладатели запретили бесплатное распространение данной книги"
     'leeet.net', // "Чтобы увидеть результаты, пожалуйста, выключите свой блокировщик рекламы"
+    'romanbook.net', // купить
+    'litlib.net', // "Конец ознакомительного фрагмента"
+    'archive.ec', // split into pages
 
     // anime
     'funimation.com', // "this video is not available in your territory"
