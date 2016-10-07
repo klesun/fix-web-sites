@@ -5,6 +5,8 @@
 
 var $$ = (s, el) => Array.from((el || document).querySelectorAll(s));
 
+var sortedCount = 0;
+
 var scheduleResort = function()
 {
 	var interrupted = false;
@@ -15,7 +17,7 @@ var scheduleResort = function()
 		idx: idx,
 	};
 
-	var sortedCount = 0;
+	sortedCount = 0;
 
 	var sort = function()
 	{
@@ -47,13 +49,15 @@ var scheduleResort = function()
 };
 
 var loadMore = () => {
-	$$('.load-more-button:not(.yt-uix-load-more-loading)')
-		.forEach(b => b.click());
-	$$('.comment-replies-renderer-header:not(.yt-uix-expander-collapsed) .comment-replies-renderer-expander-down')
-		.forEach(el => {el.click(); window.scrollTo(0, 0);});
+	if (sortedCount < 100) {
+		$$('.load-more-button:not(.yt-uix-load-more-loading)')
+			.forEach(b => b.click());
+		$$('.comment-replies-renderer-header:not(.yt-uix-expander-collapsed) .comment-replies-renderer-expander-down')
+			.forEach(el => {el.click(); window.scrollTo(0, 0);});
+	}	
 };
 
-setInterval(loadMore, 500);
+setInterval(loadMore, 5000);
 
 var interrupt = scheduleResort();
 var searchQuery = window.location.search;
