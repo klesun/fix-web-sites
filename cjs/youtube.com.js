@@ -7,6 +7,16 @@ var $$ = (s, el) => Array.from((el || document).querySelectorAll(s));
 
 var sortedCount = 0;
 
+var isNotStupid = function(comment)
+{
+	var text = comment.text ? comment.text.toLowerCase() : '';
+	var isStupid = false
+		|| /my funeral/.test(text)
+		|| /watch.*2[0k]\d{2}/.test(text)
+		;
+	return !isStupid;
+};
+
 var scheduleResort = function()
 {
 	var interrupted = false;
@@ -15,6 +25,7 @@ var scheduleResort = function()
 		likes: $$('.comment-renderer-like-count.on', elmt)[0].innerHTML - 1,
 		elmt: elmt,
 		idx: idx,
+		text: $$('.comment-renderer-text-content', elmt)[0].innerHTML,
 	};
 
 	sortedCount = 0;
@@ -30,6 +41,7 @@ var scheduleResort = function()
 			cont.innerHTML = '';
 			var adapted = commentElmts
 				.map((elmt, idx) => Comment(elmt, idx))
+				.filter(isNotStupid)
 				// ORDER BY likes DESC, original idx ASC
 				.sort((a,b) => b.likes - a.likes || a.idx - b.idx);
 			adapted.forEach(c => cont.appendChild(c.elmt));
