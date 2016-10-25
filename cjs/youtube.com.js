@@ -5,6 +5,24 @@
 
 var $$ = (s, el) => Array.from((el || document).querySelectorAll(s));
 
+var addCss = function(valueByPropBySelector) {
+    var text = '';
+    for (var selector in valueByPropBySelector) {
+        var valueByProp = valueByPropBySelector[selector];
+        text += selector + ' {\n';
+        for (var prop in valueByProp) {
+            var value = valueByProp[prop];
+            text += '    ' + prop + ': ' + value + ';\n';
+        }
+        text += '}\n';
+    }
+
+    var css = document.createElement("style");
+    css.type = "text/css";
+    css.innerHTML = text;
+    document.body.appendChild(css);
+};
+
 var sortedCount = 0;
 
 var isNotStupid = function(comment)
@@ -84,3 +102,11 @@ setInterval(
 	},
 	500
 );
+
+// this is the title of video that appears at top when you move mouse 
+// in fullscreen. Removing it cuz this is extremely annoying when, say, 
+// you are watching an rpg lets play and the text is overlaped by it
+addCss({
+    '.ytp-gradient-top': {display: 'none !important'},
+    '.ytp-chrome-top': {display: 'none !important'},
+});
