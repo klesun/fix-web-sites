@@ -11,3 +11,5 @@ Scripts in /cjs/ directory are intended to be put to [cjs](https://chrome.google
 
 You can put the links to these scripts instead of copying the code to keep up-to-date using [rawgit](https://rawgit.com/). 
 But make sure not to do it this way with your bank account sites =3. Put code only manually there and read it very carefully!
+
+![alt tag](/screenshot_before_after.png)
