@@ -86,10 +86,7 @@ let filterEvents = function () {
     let blocks = $$(':scope > li', listHolder);
     blocks
         .filter(isIrrelevant)
-        .forEach(g => {
-            console.log('irrelevant', g.innerHTML);
-            g.remove();
-        });
+        .forEach(g => g.remove());
 };
 
 let navPanel = $$('[aria-label="Facebook"][role="navigation"]')[0];
